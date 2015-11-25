@@ -1,0 +1,36 @@
+{
+  "name": "ols-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "dev": "webpack -debug --progress --colors --watch"
+  },
+  "keywords": [],
+  "author": "Paul Drummond",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.2.0",
+    "babel-core": "^6.2.1",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.1.18",
+    "babel-preset-react": "^6.1.18",
+    "babel-preset-stage-0": "^6.1.18",
+    "file-loader": "^0.8.5",
+    "redux-devtools": "^2.1.5",
+    "webpack": "^1.12.9"
+  },
+  "dependencies": {
+    "react": "^0.14.3",
+    "react-redux": "^4.0.0",
+    "redux": "^3.0.4"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-0",
+      "react"
+    ]
+  }
+}
