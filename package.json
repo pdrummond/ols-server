@@ -5,7 +5,9 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "dev": "webpack -debug --progress --colors --watch"
+    "dev": "webpack -debug --progress --colors --watch",
+    "test": "mocha --compilers js:babel-core/register --recursive",
+    "test:watch": "npm test -- --watch"
   },
   "keywords": [],
   "author": "Paul Drummond",
@@ -18,11 +20,13 @@
     "babel-preset-react": "^6.1.18",
     "babel-preset-stage-0": "^6.1.18",
     "file-loader": "^0.8.5",
+    "mocha": "^2.3.4",
     "redux-devtools": "^2.1.5",
     "webpack": "^1.12.9"
   },
   "dependencies": {
     "react": "^0.14.3",
+    "react-dom": "^0.14.3",
     "react-redux": "^4.0.0",
     "redux": "^3.0.4"
   },

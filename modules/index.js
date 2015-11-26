@@ -11,16 +11,33 @@ import { devTools, persistState } from 'redux-devtools';
 // React components for Redux DevTools
 import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 
+const logger = store => next => action => {
+  console.log('>> dispatching', action)
+  let result = next(action)
+  console.log('>> next state', store.getState())
+  return result
+}
+
+
 const finalCreateStore = compose(
 	// Enables your middleware:
-	//applyMiddleware(m1, m2, m3), // any Redux middleware, e.g. redux-thunk
+	applyMiddleware(logger),
 	// Provides support for DevTools:
 	devTools(),
 	// Lets you write ?debug_session=<name> in address bar to persist debug sessions
 	persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
 )(createStore);
 
-let store = finalCreateStore(olsApp);
+let store = finalCreateStore(olsApp, {
+	visibilityFilter: 'SHOW_OPEN',
+	items: [{
+		text: "item one",
+		closed: false,
+	}, {
+		text: "item two",
+		closed: false,
+	}]
+});
 
 let rootElement = document.getElementById('root')
 render(

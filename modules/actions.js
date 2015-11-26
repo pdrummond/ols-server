@@ -2,7 +2,8 @@
  * action types
  */
 export const ADD_ITEM = 'ADD_ITEM'
-export const CLOSE_ITEM = 'COMPLETE_TODO'
+export const OPEN_ITEM = 'OPEN_ITEM'
+export const CLOSE_ITEM = 'CLOSE_ITEM'
 export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'
 
 /*
@@ -21,6 +22,10 @@ export const VisibilityFilters = {
 
 export function addItem(text) {
   return { type: ADD_ITEM, text }
+}
+
+export function openItem(index) {
+  return { type: OPEN_ITEM, index }
 }
 
 export function closeItem(index) {
